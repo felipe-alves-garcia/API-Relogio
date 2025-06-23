@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 
 const relogio = require("./controllers/relogio");
 
+app.get("/relogios", async (req, res) => {
+    const relogios = await relogio.relogios();
+    res.send(JSON.parse(relogios));
+})
+
 app.get("/baixar-afd/:user/:password/:ip/:port", async (req, res) => {
     
     const relogioInfo = {

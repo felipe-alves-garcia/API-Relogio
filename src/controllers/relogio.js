@@ -99,5 +99,31 @@ function baixar(relogioInfo, sessionId) {
     });
 }
 
+async function relogios (){
+        let listaRelogios = [
+            {
+                name:"Desenvolvimento Econômico",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.31.2",
+                port:"4017"
+            },
+            {
+                name:"Tributário",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.6.2",
+                port:"4020"
+            },
+            {
+                name:"Merenda",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.32.2",
+                port:"4003"
+            },
+        ]
+        return JSON.stringify(listaRelogios);
+    }
 
-module.exports = { login, baixar };
+module.exports = { login, baixar, relogios };
