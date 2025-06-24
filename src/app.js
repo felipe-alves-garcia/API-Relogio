@@ -41,7 +41,6 @@ app.get("/baixar-afd/:user/:password/:ip/:port", async (req, res) => {
         console.log("ETAPA 2: Tentando baixar o arquivo AFD...");
         const afdData = await relogio.baixar(relogioInfo, sessionId);
         console.log("Download do AFD bem-sucedido!");
-
         res.setHeader('Content-Disposition', 'attachment; filename=AFD.txt');
         res.setHeader('Content-Type', 'text/plain');
         res.send(afdData);
