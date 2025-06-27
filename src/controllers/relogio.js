@@ -19,7 +19,10 @@ function login(relogioInfo) {
             socket.write(httpRequest);
         });
         let responseData = '';
-        socket.on('data', chunk => responseData += chunk.toString());
+        socket.once('data', (chunk) => {
+            responseData += chunk.toString()
+            socket.end();
+        });
         socket.on('end', () => {
             if (isDone) return; isDone = true;
             const body = getResponseBody(responseData);
@@ -121,6 +124,41 @@ async function relogios (){
                 password:"admin",
                 ip:"172.16.32.2",
                 port:"4003"
+            },
+            {
+                name:"Obras",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.37.22",
+                port:"4002"
+            },
+            {
+                name:"Transporte",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.32.3",
+                port:"4004"
+            },
+            {
+                name:"Assintência",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.36.6",
+                port:"4000"
+            },
+            {
+                name:"Rural",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.18.8",
+                port:"4025"
+            },
+            {
+                name:"Conselho",
+                login:"admin",
+                password:"admin",
+                ip:"172.16.23.2",
+                port:"4009"
             },
         ]
         return JSON.stringify(listaRelogios);
