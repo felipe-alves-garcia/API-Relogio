@@ -140,7 +140,7 @@ async function relogios (){
                 port:"4004"
             },
             {
-                name:"Assintência",
+                name:"Assistência Social",
                 login:"admin",
                 password:"admin",
                 ip:"172.16.36.6",
