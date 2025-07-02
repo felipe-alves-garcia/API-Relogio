@@ -81,7 +81,18 @@ function baixar(relogioInfo, sessionId) {
             if (body === null) {
                 reject(new Error("Resposta do AFD inválida ou sem corpo."));
             } else {
-                resolve(body);
+                const linhas = body.trim().split('\n');
+
+                linhas.pop();
+                // Remove a última linha
+                const ultimaLinha = linhas.pop();
+
+                // Adiciona ela no início
+                linhas.unshift(ultimaLinha);
+
+                // Junta novamente em uma string
+                const afdReordenado = linhas.join('\n');
+                resolve(afdReordenado);
             }
         });
 
